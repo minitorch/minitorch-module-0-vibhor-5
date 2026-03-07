@@ -1,7 +1,7 @@
 """Collection of the core mathematical operators used throughout the code base."""
 
 import math
-
+from functools import reduce
 # ## Task 0.1
 
 #
@@ -141,9 +141,13 @@ def addLists(ls1: list[float], ls2: list[float]) -> list[float]:
 
 def sum(ls: list[float]) -> float:
     """Sum a list of numbers"""
-    return reduce(lambda x,y:x*y, ls) 
+    if len(ls) == 0:
+        return 0.0
+    return reduce(lambda x,y:x+y, ls) 
 
 def prod(ls:list[float])-> float:
     """Products of all numbers in a list"""
+    if len(ls) == 0:
+        return 0.0
     return reduce(lambda x,y:x*y,ls)
 
